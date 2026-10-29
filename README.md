@@ -1,2 +1,2 @@
 # Nick's Computer
-A public place for techincal experiments and writing.
+A public place for technical experiments and writing.
