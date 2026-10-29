@@ -1,0 +1,24 @@
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;title&gt;Nick's Computer&lt;/title&gt;
+&lt;body&gt;
+	&lt;div class=&quot;main&quot;&gt;
+		&lt;div class=&quot;title&quot;&gt;
+			&lt;h1&gt;Nick's Computer&lt;/h1&gt;
+			&lt;p&gt;Hello. Welcome to my computer.&lt;p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+&lt;style&gt;
+.title * {
+	display: grid;
+	font-family: cursive;
+	justify-items: center;
+}
+.main {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+&lt;/style&gt;
+&lt;/html&gt;
