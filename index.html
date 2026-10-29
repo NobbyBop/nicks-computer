@@ -5,66 +5,169 @@
 	<div class="main">
 		<div class="title">
 			<h1>Nick's Computer</h1>
-			<p>Hello, welcome to my computer.<p>
+			<p>Hello, welcome to my computer. Here you can find my writings on 
+			things that interest technically, projects I've worked on, code 
+			snippets, and more. I'm writing all the code for this project myself
+			by hand. While not "creative" in the traditional sense, programming 
+			is an important expression of myself and that is what I want to come
+			across.<p>
 		</div>
 		<div class="section">
 			<h2>Experiment No. 1</h2>
 			<p>For my first entry on this website I wanted to create a welcome 
 			page that displays its own source code. I was inspired to write my 
 			own tool for this because I had been watching 
-			<a ref=https://www.youtube.com/watch?v=9m7QR_LUR1g>this video</a> 
+			<a href=https://www.youtube.com/watch?v=9m7QR_LUR1g>this video</a> 
 			where he writes a custom parser for his own personal records. It 
 			looked fun to make an ad-hoc Python tool for something, so as an 
-			introduction to this project, I made one too.
-		</div>
-		<div class="codeblock">
-			<code><pre>&lt;!DOCTYPE html&gt;
+			introduction to this project, I made one too. You can find my code 
+			<a href=scripts/encode-html/encode-html.py>here</a>, or on GitHub.
+			</p>
+			<p>It does a simple encoding of <, >, ", and &. However, since I was
+			planning on injecting the encoded text back into this very file, I
+			couldn't also include the code block. (Encode the HTML, update the 
+			HTML with the encoding, encode the <i>new</i> HTML, and so on.) So, 
+			I also checked for the code block in my Python script and omitted 
+			it.</p>
+			<p>Here is the output:</p>
+			<div class="codeblock">
+<code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;title&gt;Nick's Computer&lt;/title&gt;
 &lt;body&gt;
 	&lt;div class=&quot;main&quot;&gt;
 		&lt;div class=&quot;title&quot;&gt;
 			&lt;h1&gt;Nick's Computer&lt;/h1&gt;
-			&lt;p&gt;Hello, welcome to my computer.&lt;p&gt;
+			&lt;p&gt;Hello, welcome to my computer. Here you can find my writings on 
+			things that interest technically, projects I've worked on, code 
+			snippets, and more. I'm writing all the code for this project myself
+			by hand. While not &quot;creative&quot; in the traditional sense, programming 
+			is an important expression of myself and that is what I want to come
+			across.&lt;p&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;section&quot;&gt;
+			&lt;h2&gt;Experiment No. 1&lt;/h2&gt;
+			&lt;p&gt;For my first entry on this website I wanted to create a welcome 
+			page that displays its own source code. I was inspired to write my 
+			own tool for this because I had been watching 
+			&lt;a href=https://www.youtube.com/watch?v=9m7QR_LUR1g&gt;this video&lt;/a&gt; 
+			where he writes a custom parser for his own personal records. It 
+			looked fun to make an ad-hoc Python tool for something, so as an 
+			introduction to this project, I made one too. You can find my code 
+			&lt;a href=scripts/encode-html/encode-html.py&gt;here&lt;/a&gt;, or on GitHub.
+			&lt;/p&gt;
+			&lt;p&gt;It does a simple encoding of &lt;, &gt;, &quot;, and &amp. However, since I was
+			planning on injecting the encoded text back into this very file, I
+			couldn't also include the code block. (Encode the HTML, update the 
+			HTML with the encoding, encode the &lt;i&gt;new&lt;/i&gt; HTML, and so on.) So, 
+			I also checked for the code block in my Python script and omitted 
+			it.&lt;/p&gt;
+			&lt;p&gt;Here is the output:&lt;/p&gt;
+			&lt;div class=&quot;codeblock&quot;&gt;
+&lt;code&gt;[omitted for idempotency]&lt;/code&gt;
+			&lt;/div&gt;
+			&lt;p&gt;It is a very simple start but I think this is funny and I had a 
+			good time writing it. I honestly spent way more time on the CSS for 
+			this page than I did on the script but learning is learning.&lt;/p&gt;
+			&lt;p&gt;That's all for now, expect more to come in the very near future.
+			&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;section&quot;&gt;
+			&lt;h2&gt;Links&lt;/h2&gt;
+			&lt;ul&gt;
+				&lt;li&gt;
+					&lt;p&gt;My portfolio: 
+					&lt;a href=https://nicholasmirigliani.com&gt;
+					nicholasmirigliani.com
+					&lt;/a&gt;&lt;/p&gt;
+				&lt;/li&gt;
+				&lt;li&gt;
+					&lt;p&gt;View this project on 
+					&lt;a href=https://github.com/NobbyBop/nicks-computer/&gt;GitHub
+					&lt;/a&gt;&lt;/p&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/body&gt;
 &lt;style&gt;
-.title * {
-	display: grid;
-	font-family: cursive;
-	justify-items: center;
+body {
+	display:flex;
+	justify-content: center;
+	background-color: antiquewhite;
 }
 .main {
-	display: grid;
+	max-width: 70%
+}
+.title * {
+	display: flex;
+	font-family: cursive;
 	justify-content: center;
-	align-items: center;
+}
+.codeblock {
+	background-color: black;
+	color: yellow;
+	margin: none;
+	white-space: pre;
+}
+.section {
+	font-family: sans-serif;
+}
+ul {
+	list-style-type: &quot;- &quot;;
 }
 &lt;/style&gt;
-&lt;/html&gt;</pre></code>
+&lt;/html&gt;</code>
+			</div>
+			<p>It is a very simple start but I think this is funny and I had a 
+			good time writing it. I honestly spent way more time on the CSS for 
+			this page than I did on the script but learning is learning.</p>
+			<p>That's all for now, expect more to come in the very near future.
+			</p>
+		</div>
+		<div class="section">
+			<h2>Links</h2>
+			<ul>
+				<li>
+					<p>My portfolio: 
+					<a href=https://nicholasmirigliani.com>
+					nicholasmirigliani.com
+					</a></p>
+				</li>
+				<li>
+					<p>View this project on 
+					<a href=https://github.com/NobbyBop/nicks-computer/>GitHub
+					</a></p>
+				</li>
+			</ul>
 		</div>
 	</div>
 </body>
 <style>
-* {
-
-}
-.title * {
-	display: grid;
-	font-family: cursive;
-	justify-items: center;
+body {
+	display:flex;
+	justify-content: center;
+	background-color: antiquewhite;
 }
 .main {
-	display: grid;
-	justify-content: center;
-	align-items: center;
+	max-width: 70%
 }
-.codeblock * {
-	white-space: pre-wrap;
-	background: black;
-	color: white;
-	font-family: sans;
+.title * {
+	display: flex;
+	font-family: cursive;
+	justify-content: center;
+}
+.codeblock {
+	background-color: black;
+	color: yellow;
 	margin: none;
+	white-space: pre;
+}
+.section {
+	font-family: sans-serif;
+}
+ul {
+	list-style-type: "- ";
 }
 </style>
 </html>
