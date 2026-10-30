@@ -56,16 +56,14 @@
 &lt;title&gt;Nick's Computer&lt;/title&gt;
 &lt;body&gt;
 	
-	
 	&lt;h1&gt;Nick's Computer&lt;/h1&gt;
 	&lt;img src=&quot;logo.png&quot;/&gt;&lt;span&gt;hello&lt;/span&gt;
 	
-	&lt;p&gt;Welcome. Here you can find my writings on 
-	things that interest technically, projects I've worked on, code 
-	snippets, and more. I'm writing all the code for this project myself
-	by hand. While not &quot;creative&quot; in the traditional sense, programming 
-	is an important expression of myself and that is what I want to come
-	across.&lt;p&gt;
+	&lt;p&gt;Welcome. Here you can find my writings on things that interest me 
+	technically, projects I've worked on, code snippets, and more. I'm writing 
+	all the code for this project myself by hand. While not &quot;creative&quot; in the 
+	traditional sense, programming is an important form of self-expression and 
+	that is what I want to come across.&lt;p&gt;
 	
 	&lt;h2&gt;Experiment No. 1&lt;/h2&gt;
 	
@@ -107,9 +105,11 @@
 	going to get for this.&lt;/p&gt;
 	
 	&lt;p&gt;Actually, I lied. As a final step, I added &lt;span&gt;.git/hooks/pre-commit
-	&lt;/span&gt; which contains &lt;span&gt;#!/bin/bash python 
-	./scripts/encode-html/encode-html.py./index.html&lt;/span&gt; so now it updates 
-	automatically!&lt;/p&gt;
+	&lt;/span&gt; which contains:&lt;/p&gt;
+	&lt;div&gt;&lt;span&gt;#!/bin/bash 
+python ./scripts/encode-html/encode-html.py./index.html
+git add ./index.html&lt;/span&gt; &lt;/div&gt;
+	&lt;p&gt;So now it updates automatically!&lt;/p&gt;
 	
 	&lt;p&gt;It is a very simple start but I think this is funny and I had a 
 	good time writing it. I honestly spent way more time on the CSS for this 
@@ -134,9 +134,11 @@
 	going to get for this.</p>
 	
 	<p>Actually, I lied. As a final step, I added <span>.git/hooks/pre-commit
-	</span> which contains <span>#!/bin/bash python 
-	./scripts/encode-html/encode-html.py./index.html</span> so now it updates 
-	automatically!</p>
+	</span> which contains:</p>
+	<div><span>#!/bin/bash 
+python ./scripts/encode-html/encode-html.py./index.html
+git add ./index.html</span> </div>
+	<p>So now it updates automatically!</p>
 	
 	<p>It is a very simple start but I think this is funny and I had a 
 	good time writing it. I honestly spent way more time on the CSS for this 

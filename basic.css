@@ -16,7 +16,6 @@ img {
 }
 
 code {
-	white-space: pre-wrap;
 	font-family: monospace;
 }
 
@@ -25,6 +24,7 @@ span {
 }
 
 div {
+	white-space: pre-wrap;
 	background-color: black;
 	color: white;
 }
