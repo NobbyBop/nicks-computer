@@ -1,0 +1,35 @@
+body {
+	display: flex;
+	justify-content: center;
+	background-color: antiquewhite;
+}
+.main {
+	max-width: 90%
+}
+.title * {
+	display: flex;
+	font-family: "Comic Sans MS", "Brush Script MT", "Lucida Handwriting", sans-serif;
+	justify-content: center;
+}
+.codeblock {
+	font-family: monospace;
+	background-color: black;
+	color: yellow;
+	white-space: pre-wrap;
+}
+.section {
+	font-family: sans-serif;
+}
+ul {
+	list-style-type: "- ";
+}
+
+/* Phone */
+@media (max-width: 450px){
+	.main {
+		max-width: 100%
+	}
+	.codeblock {
+		size: 50%
+	}
+}
