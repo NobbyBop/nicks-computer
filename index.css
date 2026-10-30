@@ -23,13 +23,3 @@ body {
 ul {
 	list-style-type: "- ";
 }
-
-/* Phone */
-@media (max-width: 450px){
-	.main {
-		max-width: 100%
-	}
-	.codeblock {
-		size: 50%
-	}
-}
