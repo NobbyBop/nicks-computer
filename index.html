@@ -5,149 +5,145 @@
 </head>
 <title>Nick's Computer</title>
 <body>
-	<div class="main">
-		<div class="title">
-			<h1>Nick's Computer</h1>
-			<p>Hello, welcome to my computer. Here you can find my writings on 
-			things that interest technically, projects I've worked on, code 
-			snippets, and more. I'm writing all the code for this project myself
-			by hand. While not "creative" in the traditional sense, programming 
-			is an important expression of myself and that is what I want to come
-			across.<p>
-		</div>
-		<div class="section">
-			<h2>Experiment No. 1</h2>
-			<p>For my first entry on this website I wanted to create a welcome 
-			page that displays its own source code. I was inspired to write my 
-			own tool for this because I had been watching 
-			<a href=https://www.youtube.com/watch?v=9m7QR_LUR1g target=_blank>
-			this video</a> where he writes a custom parser for his own personal 
-			records. It looked fun to make an ad-hoc Python tool for something, 
-			so as an introduction to this project, I made one too.</p>
-			<p>It does a simple encoding of <, >, ", and &. However, since I was
-			planning on injecting the encoded text back into this very file, I
-			couldn't also include the code block. (Encode the HTML, update the 
-			HTML with the encoding, encode the <i>new</i> HTML, and so on.) So, 
-			I also checked for the code block in my Python script and omitted 
-			it.</p>
-			<p>As a second step, I decided it would be nice if the script could:
-			</p>
-			<ol>
-				<li>Encode and save all of this HTML file except the code 
-				blocks.</li>
-				<li>Remember where the code block begins in the original file.
-				<li>Inject the encoded string back into the HTML that it is an
-				encoding of.</li>
-			</ol>
-			<p>Here is what I came up with:
-			<a href=https://github.com/NobbyBop/nicks-computer/blob/main/scripts/encode-html/encode-html.py
-			target=_blank>[view on GitHub]</a>
-			<p>And here is the result:</p>
-			<div class="codeblock">
-<code>&lt;!DOCTYPE html&gt;
+	
+	
+	<h1>Nick's Computer</h1>
+	<img src="logo.png"/><span>hello</span>
+	
+	<p>Welcome. Here you can find my writings on 
+	things that interest technically, projects I've worked on, code 
+	snippets, and more. I'm writing all the code for this project myself
+	by hand. While not "creative" in the traditional sense, programming 
+	is an important expression of myself and that is what I want to come
+	across.<p>
+	
+	<h2>Experiment No. 1</h2>
+	
+	<p>For my first entry on this website I wanted to create a welcome 
+	page that displays its own source code. I was inspired to write my 
+	own tool for this because I had been watching 
+	<a href=https://www.youtube.com/watch?v=9m7QR_LUR1g target=_blank>
+	this video</a> where the creator writes a custom parser for his own personal 
+	records. It looked fun to make an ad-hoc Python tool for something, so as an
+	introduction to this project, I made one too.</p>
+	
+	<p>It does a simple encoding of <span><</span>, <span>></span>, 
+	<span>"</span>, and <span>&</span>. However, since I was planning on 
+	injecting the encoded text back into this very file, Icouldn't also include
+	the code block. (Encode the HTML, update the HTML with the encoding, encode
+	the <i>new</i> HTML, and so on.) So, I also checked for the code block in my
+	Python script and omitted it.</p>
+	
+	<p>As a second step, I decided it would be nice if the script could:</p>
+	
+	<ol>
+		<li>Encode and save all of this HTML file except the code 
+		blocks.</li>
+		<li>Remember where the code block begins in the original file.
+		<li>Inject the encoded string back into the HTML that it is an
+		encoding of.</li>
+	</ol>
+	
+	<p>Here is what I came up with:
+	<a href=https://github.com/NobbyBop/nicks-computer/blob/main/scripts/encode-html/encode-html.py
+	target=_blank>[view on GitHub]</a></p>
+	
+	<p>And here is the result:</p>
+	
+	<div><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;index.css&quot;&gt;
 &lt;/head&gt;
 &lt;title&gt;Nick's Computer&lt;/title&gt;
 &lt;body&gt;
-	&lt;div class=&quot;main&quot;&gt;
-		&lt;div class=&quot;title&quot;&gt;
-			&lt;h1&gt;Nick's Computer&lt;/h1&gt;
-			&lt;p&gt;Hello, welcome to my computer. Here you can find my writings on 
-			things that interest technically, projects I've worked on, code 
-			snippets, and more. I'm writing all the code for this project myself
-			by hand. While not &quot;creative&quot; in the traditional sense, programming 
-			is an important expression of myself and that is what I want to come
-			across.&lt;p&gt;
-		&lt;/div&gt;
-		&lt;div class=&quot;section&quot;&gt;
-			&lt;h2&gt;Experiment No. 1&lt;/h2&gt;
-			&lt;p&gt;For my first entry on this website I wanted to create a welcome 
-			page that displays its own source code. I was inspired to write my 
-			own tool for this because I had been watching 
-			&lt;a href=https://www.youtube.com/watch?v=9m7QR_LUR1g target=_blank&gt;
-			this video&lt;/a&gt; where he writes a custom parser for his own personal 
-			records. It looked fun to make an ad-hoc Python tool for something, 
-			so as an introduction to this project, I made one too.&lt;/p&gt;
-			&lt;p&gt;It does a simple encoding of &lt;, &gt;, &quot;, and &amp. However, since I was
-			planning on injecting the encoded text back into this very file, I
-			couldn't also include the code block. (Encode the HTML, update the 
-			HTML with the encoding, encode the &lt;i&gt;new&lt;/i&gt; HTML, and so on.) So, 
-			I also checked for the code block in my Python script and omitted 
-			it.&lt;/p&gt;
-			&lt;p&gt;As a second step, I decided it would be nice if the script could:
-			&lt;/p&gt;
-			&lt;ol&gt;
-				&lt;li&gt;Encode and save all of this HTML file except the code 
-				blocks.&lt;/li&gt;
-				&lt;li&gt;Remember where the code block begins in the original file.
-				&lt;li&gt;Inject the encoded string back into the HTML that it is an
-				encoding of.&lt;/li&gt;
-			&lt;/ol&gt;
-			&lt;p&gt;Here is what I came up with:
-			&lt;a href=https://github.com/NobbyBop/nicks-computer/blob/main/scripts/encode-html/encode-html.py
-			target=_blank&gt;[view on GitHub]&lt;/a&gt;
-			&lt;p&gt;And here is the result:&lt;/p&gt;
-			&lt;div class=&quot;codeblock&quot;&gt;
-&lt;code&gt;[omitted for idempotency]&lt;/code&gt;
-			&lt;/div&gt;
-			&lt;p&gt; So now it is as easy as making an edit to this page and running
-			&lt;span class=codeblock&gt;python encode-html.py index.html&lt;/span&gt;, which 
-			is as optimal as I am going to get for this.&lt;/p&gt;
-			&lt;p&gt;It is a very simple start but I think this is funny and I had a 
-			good time writing it. I honestly spent way more time on the CSS for 
-			this page than I did on the script but learning is learning.&lt;/p&gt;
-			&lt;p&gt;That's all for now, expect more to come in the very near future.
-			&lt;/p&gt;
-		&lt;/div&gt;
-		&lt;div class=&quot;section&quot;&gt;
-			&lt;h2&gt;Links&lt;/h2&gt;
-			&lt;ul&gt;
-				&lt;li&gt;
-					&lt;p&gt;My portfolio: 
-					&lt;a href=https://nicholasmirigliani.com&gt;
-					nicholasmirigliani.com
-					&lt;/a&gt;&lt;/p&gt;
-				&lt;/li&gt;
-				&lt;li&gt;
-					&lt;p&gt;View this project on 
-					&lt;a href=https://github.com/NobbyBop/nicks-computer/ 
-					target=_blank&gt; GitHub
-					&lt;/a&gt;&lt;/p&gt;
-				&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
+	
+	
+	&lt;h1&gt;Nick's Computer&lt;/h1&gt;
+	&lt;img src=&quot;logo.png&quot;/&gt;&lt;span&gt;hello&lt;/span&gt;
+	
+	&lt;p&gt;Welcome. Here you can find my writings on 
+	things that interest technically, projects I've worked on, code 
+	snippets, and more. I'm writing all the code for this project myself
+	by hand. While not &quot;creative&quot; in the traditional sense, programming 
+	is an important expression of myself and that is what I want to come
+	across.&lt;p&gt;
+	
+	&lt;h2&gt;Experiment No. 1&lt;/h2&gt;
+	
+	&lt;p&gt;For my first entry on this website I wanted to create a welcome 
+	page that displays its own source code. I was inspired to write my 
+	own tool for this because I had been watching 
+	&lt;a href=https://www.youtube.com/watch?v=9m7QR_LUR1g target=_blank&gt;
+	this video&lt;/a&gt; where the creator writes a custom parser for his own personal 
+	records. It looked fun to make an ad-hoc Python tool for something, so as an
+	introduction to this project, I made one too.&lt;/p&gt;
+	
+	&lt;p&gt;It does a simple encoding of &lt;span&gt;&lt;&lt;/span&gt;, &lt;span&gt;&gt;&lt;/span&gt;, 
+	&lt;span&gt;&quot;&lt;/span&gt;, and &lt;span&gt;&amp&lt;/span&gt;. However, since I was planning on 
+	injecting the encoded text back into this very file, Icouldn't also include
+	the code block. (Encode the HTML, update the HTML with the encoding, encode
+	the &lt;i&gt;new&lt;/i&gt; HTML, and so on.) So, I also checked for the code block in my
+	Python script and omitted it.&lt;/p&gt;
+	
+	&lt;p&gt;As a second step, I decided it would be nice if the script could:&lt;/p&gt;
+	
+	&lt;ol&gt;
+		&lt;li&gt;Encode and save all of this HTML file except the code 
+		blocks.&lt;/li&gt;
+		&lt;li&gt;Remember where the code block begins in the original file.
+		&lt;li&gt;Inject the encoded string back into the HTML that it is an
+		encoding of.&lt;/li&gt;
+	&lt;/ol&gt;
+	
+	&lt;p&gt;Here is what I came up with:
+	&lt;a href=https://github.com/NobbyBop/nicks-computer/blob/main/scripts/encode-html/encode-html.py
+	target=_blank&gt;[view on GitHub]&lt;/a&gt;&lt;/p&gt;
+	
+	&lt;p&gt;And here is the result:&lt;/p&gt;
+	
+	&lt;div&gt;&lt;code&gt;[omitted for idempotency]&lt;/code&gt;&lt;/div&gt;
+	
+	&lt;p&gt; So now it is as easy as making an edit to this page and running
+	&lt;span&gt; python encode-html.py index.html&lt;/span&gt;, which is as optimal as I am 
+	going to get for this.&lt;/p&gt;
+	
+	&lt;p&gt;It is a very simple start but I think this is funny and I had a 
+	good time writing it. I honestly spent way more time on the CSS for this 
+	page (only to strip it down later) than I did on the script but learning is 
+	learning.&lt;/p&gt;
+	
+	&lt;p&gt;That's all for now, expect more to come in the very near future.&lt;/p&gt;
+	
+	&lt;h2&gt;Links&lt;/h2&gt;
+	
+	&lt;p&gt;My portfolio: &lt;a href=https://nicholasmirigliani.com&gt;
+	nicholasmirigliani.com&lt;/a&gt;&lt;/p&gt;
+	
+	&lt;p&gt;View this project on &lt;a href=https://github.com/NobbyBop/nicks-computer/ 
+	target=_blank&gt; GitHub&lt;/a&gt;&lt;/p&gt;
+
 &lt;/body&gt;
-&lt;/html&gt;</code>
-			</div>
-			<p> So now it is as easy as making an edit to this page and running
-			<span class=codeblock>python encode-html.py index.html</span>, which 
-			is as optimal as I am going to get for this.</p>
-			<p>It is a very simple start but I think this is funny and I had a 
-			good time writing it. I honestly spent way more time on the CSS for 
-			this page than I did on the script but learning is learning.</p>
-			<p>That's all for now, expect more to come in the very near future.
-			</p>
-		</div>
-		<div class="section">
-			<h2>Links</h2>
-			<ul>
-				<li>
-					<p>My portfolio: 
-					<a href=https://nicholasmirigliani.com>
-					nicholasmirigliani.com
-					</a></p>
-				</li>
-				<li>
-					<p>View this project on 
-					<a href=https://github.com/NobbyBop/nicks-computer/ 
-					target=_blank> GitHub
-					</a></p>
-				</li>
-			</ul>
-		</div>
-	</div>
+&lt;/html&gt;</code></div>
+	
+	<p> So now it is as easy as making an edit to this page and running
+	<span> python encode-html.py index.html</span>, which is as optimal as I am 
+	going to get for this.</p>
+	
+	<p>It is a very simple start but I think this is funny and I had a 
+	good time writing it. I honestly spent way more time on the CSS for this 
+	page (only to strip it down later) than I did on the script but learning is 
+	learning.</p>
+	
+	<p>That's all for now, expect more to come in the very near future.</p>
+	
+	<h2>Links</h2>
+	
+	<p>My portfolio: <a href=https://nicholasmirigliani.com>
+	nicholasmirigliani.com</a></p>
+	
+	<p>View this project on <a href=https://github.com/NobbyBop/nicks-computer/ 
+	target=_blank> GitHub</a></p>
+
 </body>
 </html>
