@@ -53,7 +53,7 @@
 	<div><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;index.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;basic.css&quot;&gt;
 &lt;/head&gt;
 &lt;title&gt;Nick's Computer&lt;/title&gt;
 &lt;body&gt;
@@ -108,9 +108,14 @@
 	&lt;span&gt; python encode-html.py index.html&lt;/span&gt;, which is as optimal as I am 
 	going to get for this.&lt;/p&gt;
 	
+	&lt;p&gt;Actually, I lied. As a final step, I added &lt;span&gt;.git/hooks/pre-commit
+	&lt;/span&gt; which contains &lt;span&gt;#!/bin/bash python 
+	./scripts/encode-html/encode-html.py./index.html&lt;/span&gt; so now it updates 
+	automatically!&lt;/p&gt;
+	
 	&lt;p&gt;It is a very simple start but I think this is funny and I had a 
 	good time writing it. I honestly spent way more time on the CSS for this 
-	page (only to strip it down later) than I did on the script but learning is 
+	page (only to strip it down later) than I did on the script, but learning is 
 	learning.&lt;/p&gt;
 	
 	&lt;p&gt;That's all for now, expect more to come in the very near future.&lt;/p&gt;
