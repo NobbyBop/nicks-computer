@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="basic.css">
+</head>
+<title>Nick's Computer</title>
+<body>
+	
+	<h1>Nick's Computer</h1>
+	<img src="logo.png"/><span>hello</span>
+	
+	<p><a href="index.html">[Back to main page]</a></p>
+	
+	<h2>peanut: the tiny agent harness</h2>
+	
+	<p>i work with ai in my job, and we had recently spent a day doing a hackathon with the goal of building an agent harness that could solve a series of puzzles. it got me thinking, all the harnesses on the market are geared towards corporate models that you have to pay for. i don't like paying for ai (i seldom use it outside of work) so i thought i might try to build a small agent harness that would work on my laptop. something like claude code for local models (although not necessarily coding-focused).</p>
+	
+	<p>to build this i ran local models on my laptop using ollama and wrote the harness in python.</p>
+	
+	<p>my laptop specs:</p>
+	
+	<div><span>Processor 11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz (2.30 GHz)
+Installed RAM 16.0 GB (15.8 GB usable)
+Graphics card NVIDIA GeForce RTX 3070 Laptop GPU (8 GB)
+Intel(R) UHD Graphics (128 MB)
+Storage 350 GB of 954 GB used
+System type 64-bit operating system, x64-based processor</span></div>
+
+	<p>models i tried this with:</p>
+	
+	<div><span>NAME           ID              SIZE
+llama3.1:8b    46e0c10c039e    4.9 GB
+qwen3:8b       500a1f067a9f    5.2 GB
+gemma4:e2b     b37049369adf    4.6 GB</span></div>
+	
+	<h2>version 1: a little chat program</h2>
+	
+	<p>the first version i came up with was a very basic chat experience. two features stand out to me as being somewhat notable.</p>
+	
+	<ol>
+		<li><p>each chat is saved and summarized into a quick title. this could be useful if you had several conversations about different things. an example would be "finding lost car keys" or "explaining quantum mechanics." i ultimately cut this because it was unneeded for the low level of complexity that the conversations reached.</p></li>
+		<li>
+			<p>tools are dynamically loaded and executed from auxillary python scripts</p>
+			<div><span>from pathlib import Path
+import importlib
+import sys
+import os
+
+tools_path = os.environ.get("TOOLS_DIR") or "~/.peanut/.tools/"
+sys.path.insert(0, tools_path)
+
+def execute_tool(tool, *args):
+    module_name = tool
+    module = importlib.import_module(module_name)
+    module.__getattribute__(tool)(*args)
+
+def resolve_tools():
+    importlib.invalidate_caches()
+    module_names = os.listdir(tools_path)
+    module_names = list(filter(lambda x: ".py" in x, module_names))
+    module_names = list(map(lambda x: x.strip(".py"), module_names))
+    tools = {}
+    for module_name in module_names:
+        module = importlib.import_module(module_name)
+        tools[module_name]=module.__getattribute__(module_name)
+    return tools</span></div>
+		<p>this is interesting because it theoretically allows tools to be generated mid-session by peanut itself. it just needs to write a tool to the correct location in the expected format. each turn the loop re-loads the tools. however, as i will show later, this didn't work very well for local models, i suspect the openai api is too token-heavy for small models in how it passes tool information to the model.</p></li>
+	</ol>
+	
+	<h2>version 2: clever but overkill</h2>
+	
+	<p>i noticed a big problem when running this version of peanut. following the documented ollama and openai patterns was confusing the model on whose turn it was to speak, which was manifesting as a lack of responses after tool calls, or tools in a loop.</p>
+	
+	<p>my first attempt to fix this was to intercept the conversation and build a custom prompt each time. it went something like this:</p>
+	
+	<ol>
+		<li><p>take the conversation so far, have an llm choose the relevant entries to whatever the most recent message was</p></li>
+		<li><p>take those selected messages, have another llm summarize them into useful context</p></li>
+		<li><p>give <i>only</i> the most recent message and context summary to peanut</p></li>
+	</ol>
+	
+	<p>as an idea, it wasn't so bad. in practice, it worked most of the time but it didn't help with context enough to make much of a difference, and it introduced more room for error by giving more work to llms</p>
+	
+	<h2>version 3: simpler is better</h2>
+	
+	<p>when developing peanut i lost sight of what the actual goal was: a tiny but useful agent you could run on your computer. so for this next (and final) version, i took what i had learned and built peanut into a conversational agent that can run commands on your terminal.<p>
+	
+	<p>the main changes were stripping out sessions and pivoting away from the built-in tool schema to a custom-defined json response shape that i could parse myself</p>
+	
+	<div><span>class Action(Enum):
+    respond = "respond"
+    execute = "command"
+    
+class ResponseFormat(BaseModel):
+    action: Action
+    message: str | None
+    command: str | None</span></div>
+	
+	<p>the model almost always chooses the correct option between these, which was a big improvement! the only issue is it really struggles with powershell commands. i think in terms of usability it is still a bit too clunky to actually help you in your terminal. however, in terms of tool calling, this is absolutely the way to go for small local models.</p>
+	
+	<p>as i mentioned i don't really use ai outside of work, so i'm satisfied with the learnings of making this project, even though its utility is questionable.</p>
+	
+	<p>an ideal final version would be closer to version 1 (which i have on the legacy branch of the repo), but adding specific tools as i need them (feel free to do this for me if you want to because <a href=https://github.com/NobbyBop/peanut target=_blank> peanut is on github</a>).</p>
+	
+	<h2>sample run</h2>
+	
+	<div><span>hi, i'm
+                                             888        
+                                             888        
+                                             888        
+88888b.   .d88b.   8888b.  88888b.  888  888 888888     
+888 "88b d8P  Y8b     "88b 888 "88b 888  888 888        
+888  888 88888888 .d888888 888  888 888  888 888        
+888 d88P Y8b.     888  888 888  888 Y88b 888 Y88b.  d8b 
+88888P"   "Y8888  "Y888888 888  888  "Y88888  "Y888 Y8P 
+888                                                     
+888                                                     
+888                                                             
+
+send a message to get started
+
+you > hey peanut
+peanut > hey there
+you > can you help me find my car keys
+peanut > i can't physically find your car keys, but have you checked common places like your pockets, bags, or near the door?
+you > oh yeah they were in my pocket thanks
+peanut > glad i could help! hope you find them soon.</span></div>
+	
+	<p><a href="index.html">[Back to main page]</a></p>
+	<h2>Links</h2>
+	
+	<p>My portfolio: <a href=https://nicholasmirigliani.com>
+	nicholasmirigliani.com</a></p>
+	
+	<p>View this project on <a href=https://github.com/NobbyBop/nicks-computer/ 
+	target=_blank>GitHub</a></p>
+
+</body>
+</html>
