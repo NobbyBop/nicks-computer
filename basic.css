@@ -28,3 +28,8 @@ div {
 	background-color: black;
 	color: white;
 }
+
+table, th, td {
+	text-align: left;
+	border-style: inset
+}
