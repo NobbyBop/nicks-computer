@@ -14,6 +14,8 @@
 	<h2>Experiment No. 1 - Encoding and Injecting HTML with GitHub Pre-Commit
 	</h2>
 	
+	<p><i>10/25/2026 - 10/27/2026</i></p>
+	
 	<p>For my first entry on this website I wanted to create a welcome 
 	page that displays its own source code. I was inspired to write my 
 	own tool for this because I had been watching 
@@ -61,6 +63,8 @@
 	&lt;h2&gt;Experiment No. 1 - Encoding and Injecting HTML with GitHub Pre-Commit
 	&lt;/h2&gt;
 	
+	&lt;p&gt;&lt;i&gt;10/25/2026 - 10/27/2026&lt;/i&gt;&lt;/p&gt;
+	
 	&lt;p&gt;For my first entry on this website I wanted to create a welcome 
 	page that displays its own source code. I was inspired to write my 
 	own tool for this because I had been watching 
@@ -95,14 +99,15 @@
 	&lt;div&gt;&lt;code&gt;[omitted for idempotency]&lt;/code&gt;&lt;/div&gt;
 	
 	&lt;p&gt; So now it is as easy as making an edit to this page and running
-	&lt;span&gt; python encode-html.py index.html&lt;/span&gt;, which is as optimal as I am 
-	going to get for this.&lt;/p&gt;
+	&lt;span&gt;python encode-html.py experiment-01-html-encoding-and-injecting.html
+	&lt;/span&gt;, which is as optimal as I am going to get for this.&lt;/p&gt;
 	
 	&lt;p&gt;Actually, I lied. As a final step, I added &lt;span&gt;.git/hooks/pre-commit
 	&lt;/span&gt; which contains:&lt;/p&gt;
+	
 	&lt;div&gt;&lt;span&gt;#!/bin/bash 
-python ./scripts/encode-html/encode-html.py. /index.html
-git add ./index.html&lt;/span&gt; &lt;/div&gt;
+python ./scripts/encode-html/encode-html.py. ./experiment-01-html-encoding-and-injecting.html
+git add ./experiment-01-html-encoding-and-injecting.html&lt;/span&gt; &lt;/div&gt;
 	&lt;p&gt;So now it updates automatically!&lt;/p&gt;
 	
 	&lt;p&gt;It is a very simple start but I think this is funny and I had a 
@@ -118,14 +123,15 @@ git add ./index.html&lt;/span&gt; &lt;/div&gt;
 &lt;/html&gt;</code></div>
 	
 	<p> So now it is as easy as making an edit to this page and running
-	<span> python encode-html.py index.html</span>, which is as optimal as I am 
-	going to get for this.</p>
+	<span>python encode-html.py experiment-01-html-encoding-and-injecting.html
+	</span>, which is as optimal as I am going to get for this.</p>
 	
 	<p>Actually, I lied. As a final step, I added <span>.git/hooks/pre-commit
 	</span> which contains:</p>
+	
 	<div><span>#!/bin/bash 
-python ./scripts/encode-html/encode-html.py. /index.html
-git add ./index.html</span> </div>
+python ./scripts/encode-html/encode-html.py. ./experiment-01-html-encoding-and-injecting.html
+git add ./experiment-01-html-encoding-and-injecting.html</span> </div>
 	<p>So now it updates automatically!</p>
 	
 	<p>It is a very simple start but I think this is funny and I had a 
