@@ -72,7 +72,6 @@ if __name__ == "__main__":
         if typ not in valid_types.keys():
             continue
         date = extractDate(file_pieces[1])
-        print(date.__str__())
         if date is None:
             continue
         title = file_pieces[2].replace("_"," ")[:-5]
