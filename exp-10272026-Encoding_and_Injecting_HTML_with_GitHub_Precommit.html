@@ -65,15 +65,16 @@
 	
 	&lt;p&gt;And here is the result:&lt;/p&gt;
 	
+	&lt;!-- GENERATED - do not edit div or code by hand. --&gt;
 	&lt;div&gt;&lt;code&gt;[omitted for idempotency]&lt;/code&gt;&lt;/div&gt;
 	
-	&lt;p&gt; So now it is as easy as making an edit to this page and running &lt;span&gt;python encode-html.py experiment-01-html-encoding-and-injecting.html &lt;/span&gt;, which is as optimal as I am going to get for this.&lt;/p&gt;
+	&lt;p&gt; So now it is as easy as making an edit to this page and running &lt;span&gt;python encode-html.py exp-10272026-Encoding_and_Injecting_HTML_with_GitHub_Precommit.html&lt;/span&gt;, which is as optimal as I am going to get for this.&lt;/p&gt;
 	
 	&lt;p&gt;Actually, I lied. As a final step, I added &lt;span&gt;.git/hooks/pre-commit &lt;/span&gt; which contains:&lt;/p&gt;
 	
 	&lt;div&gt;&lt;span&gt;#!/bin/bash 
-python ./scripts/encode-html/encode-html.py. ./experiment-01-html-encoding-and-injecting.html
-git add ./experiment-01-html-encoding-and-injecting.html&lt;/span&gt; &lt;/div&gt;
+python ./scripts/encode-html/encode-html.py. ./exp-10272026-Encoding_and_Injecting_HTML_with_GitHub_Precommit.html
+git add ./exp-10272026-Encoding_and_Injecting_HTML_with_GitHub_Precommit.html&lt;/span&gt; &lt;/div&gt;
 	&lt;p&gt;So now it updates automatically!&lt;/p&gt;
 	
 	&lt;p&gt;It is a very simple start but I think this is funny and I had a good time writing it. I honestly spent way more time on the CSS for this page (only to strip it down later) than I did on the script, but learning is learning.&lt;/p&gt;
@@ -91,13 +92,13 @@ git add ./experiment-01-html-encoding-and-injecting.html&lt;/span&gt; &lt;/div&g
 &lt;/body&gt;
 &lt;/html&gt;</code></div>
 	
-	<p> So now it is as easy as making an edit to this page and running <span>python encode-html.py experiment-01-html-encoding-and-injecting.html </span>, which is as optimal as I am going to get for this.</p>
+	<p> So now it is as easy as making an edit to this page and running <span>python encode-html.py exp-10272026-Encoding_and_Injecting_HTML_with_GitHub_Precommit.html</span>, which is as optimal as I am going to get for this.</p>
 	
 	<p>Actually, I lied. As a final step, I added <span>.git/hooks/pre-commit </span> which contains:</p>
 	
 	<div><span>#!/bin/bash 
-python ./scripts/encode-html/encode-html.py. ./experiment-01-html-encoding-and-injecting.html
-git add ./experiment-01-html-encoding-and-injecting.html</span> </div>
+python ./scripts/encode-html/encode-html.py. ./exp-10272026-Encoding_and_Injecting_HTML_with_GitHub_Precommit.html
+git add ./exp-10272026-Encoding_and_Injecting_HTML_with_GitHub_Precommit.html</span> </div>
 	<p>So now it updates automatically!</p>
 	
 	<p>It is a very simple start but I think this is funny and I had a good time writing it. I honestly spent way more time on the CSS for this page (only to strip it down later) than I did on the script, but learning is learning.</p>
