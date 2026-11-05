@@ -15,7 +15,7 @@
 	
 	<p>Assuming you are on this page, you likely navigated to it using the table of works on the main page (how convenient!). After writing two works, I decided I would not want to be manually updating this table every time I add one. So, I thought I would add another pre-commit step and use Python once more to dynamically generate the table based on the works in the repository root.</p>
 	
-	<p>You can check out the whole script here: <a href=https://github.com/NobbyBop/nicks-computer/blob/main/scripts/encode-html/encode-html.py target=_blank>[view on GitHub]</a></p>
+	<p>You can check out the whole script here: <a href=https://github.com/NobbyBop/nicks-computer/blob/main/scripts/build-table/build-table.py target=_blank>[view on GitHub]</a></p>
 	
 	<p>The task was not super complex, especially after working with HTML injection in my <a href="exp-10272026-Encoding_and_Injecting_HTML_with_GitHub_Precommit.html">first experiment</a>
 	<p>I enforced a very simple (and likely to change) naming convention so I can capture the works: <span>type-mmddyyy-title_with_underscores.html</span>. I really only need to know those three things, the title, date, and "type". I already don't know the difference between types. Whether something is an Experiment, Project, or Blog is just going to come down to my vibes-based decision. In the code, I just check the root directory for files with that naming convention and parse them into objects, like the shape below.</p>
