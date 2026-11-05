@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="basic.css">
+</head>
+<title>Nick's Computer</title>
+<body>
+	
+	<h1>Nick's Computer</h1>
+	<img src="logo.png"/><span>hello</span>
+	
+	<p><a href="index.html">[Back to main page]</a></p>
+	
+	<h2>Experiment No. 2: Dynamically Building List of Works</h2>
+	
+	<p>Assuming you are on this page, you likely navigated to it using the table of works on the main page (how convenient!). After writing two works, I decided I would not want to be manually updating this table every time I add one. So, I thought I would add another pre-commit step and use Python once more to dynamically generate the table based on the works in the repository root.</p>
+	
+	<p>You can check out the whole script here: <a href=https://github.com/NobbyBop/nicks-computer/blob/main/scripts/encode-html/encode-html.py target=_blank>[view on GitHub]</a></p>
+	
+	<p>The task was not super complex, especially after working with HTML injection in my <a href="exp-10272026-Encoding_and_Injecting_HTML_with_GitHub_Precommit.html">first experiment</a>
+	<p>I enforced a very simple (and likely to change) naming convention so I can capture the works: <span>type-mmddyyy-title_with_underscores.html</span>. I really only need to know those three things, the title, date, and "type". I already don't know the difference between types. Whether something is an Experiment, Project, or Blog is just going to come down to my vibes-based decision. In the code, I just check the root directory for files with that naming convention and parse them into objects, like the shape below.</p>
+	
+	<div><span>{
+        filename: str,
+        title: str,
+        date: Date,
+        type: str
+}</span></div>
+	
+	<p>The most interesting part of it was getting back into <u>custom comparitors</u>. These allow you to sort elements of lists of any type. Also, you'll notice the <span>Date</span> type above. In the spirit of making thigs ad-hoc, I wrote my own <span>Date</span> class and custom comparitor to go along with it. I didn't feel like getting into the nitty-gritty of dealing with Python's <span>datetime</span> module, and since this use case is so simple I figured I would write it myself.</p>
+	
+	<div><span>class Date:
+    def __init__(self, m, d, y):
+        self.m = m
+        self.d = d
+        self.y = y
+            
+    def toStr(self):
+        return f"{self.m}-{self.d}-{self.y}"
+
+def compareWorksByDate(work1, work2):
+        """ 
+        Compares the works by their date attribute.
+        """
+        a = work1["date"]
+        b = work2["date"]
+        
+        if a.y > b.y:
+            return -1
+        if a.y < b.y:
+            return 1
+        if a.m > b.m:
+            return -1
+        if a.m < b.m:
+            return 1
+        if a.d > b.d:
+            return -1
+        if a.d < b.d:
+            return 1
+        return 0</span></div>
+	
+	<p>Then, it is as simple as <span>works = sorted(works, key=cmp_to_key(compareWorksByDate))</span> to get a list of the works in order. Doing this took me back to a few of my college classes, and reminded me of my earlier experience with Java (whose classes I greatly prefer over Python's). I used a very similar technique to find and inject the table into the main page as I did last time, so no need to elaborate on that here (plus you can look at the code if you want to know).<p>
+	
+	<p>As I am piecing together this website, I am writing about building it. What is this website other than a report on how it is built? But I am a big fan of that idea. As I build, I learn and I write. The website takes on a meta, fourth-wall-breaking identity. This experiment in particular really speaks to what I am trying to accomplish. Though small, and though I am re-inventing the wheel in a sense, I am practicing <b>self-reliance on my own ability to plan, code, and communicate.</b> And also I just think it's fun :P</p>
+	
+	<p>Anyway, to get this set up in my exising GitHub workflow, I added the following 2 lines to <span>.git/hooks/precommit</span>:
+	
+	<div><span>python ./scripts/build-table/build-table.py
+git add ./index.html</span></div>
+
+	<p>And that about does it. (If you read this far, looks like it probably worked!)</p>
+	
+	<p><a href="index.html">[Back to main page]</a></p>
+	<h2>Links</h2>
+	
+	<p>My portfolio: <a href=https://nicholasmirigliani.com>
+	nicholasmirigliani.com</a></p>
+	
+	<p>View this project on <a href=https://github.com/NobbyBop/nicks-computer/ 
+	target=_blank> GitHub</a></p>
+
+</body>
+</html>
